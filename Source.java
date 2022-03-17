@@ -1,4 +1,4 @@
-﻿class Customer 
+class Customer 
 {
         private String userId;
         private String emailId;
@@ -12,7 +12,6 @@
         private ServiceDetails serviceDetails;
         
         public Customer() {
-                super();
         }
         public Customer(String userId, String emailId, String password, String firstName, String lastName, String city, String gender, String phoneNumber, Address address, ServiceDetails serviceDetails) {
                 super();
@@ -89,9 +88,7 @@
         }
         @Override
         public String toString() {
-                return "Customer [userId=" + userId + ", emailId=" + emailId + ", password=" + password + ", firstName="
-                                + firstName + ", lastName=" + lastName + ", city=" + city + ", gender=" + gender + ", phoneNumber="
-                                + phoneNumber + ", address=" + address + ", serviceDetails=" + serviceDetails + "]";
+            return "Customer [userId=" + userId + ", emailId=" + emailId +",\n"+"password=" + password + ", firstName="+ firstName + ", lastName=" + lastName +",\n"+"city=" + city + ", gender=" + gender + ", phoneNumber="+ phoneNumber + "];";
         }
 }
 
@@ -104,7 +101,6 @@ class Address
         private String country;
         
         public Address() {
-                super();
         }
         public Address(String city, String state, int zip, String country) {
                 super();
@@ -133,7 +129,6 @@ class ServiceDetails
         private String totalSeats;
         
         public ServiceDetails() {
-                super();
         }
         public ServiceDetails(String serviceId, String busId, String deptDateTime, String arrDateTime, String arrivalCity,
                         String deptCity, String cost, String seatsLeft, String totalSeats) {
@@ -212,54 +207,53 @@ class ServiceDetails
 
 class Admin
 {
-    private String adminId;
-    private String email;
-    private String firstName;
-    private String lastName;
-    private String password;
+        private String adminId;
+        private String email;
+        private String firstName;
+        private String lastName;
+        private String password;
 
-    public Admin() {
-        super();
-    }
-    public Admin(String adminId, String email, String firstName, String lastName, String password) {
+        public Admin() {
+        }
+        public Admin(String adminId, String email, String firstName, String lastName, String password) {
         super();
         this.adminId = adminId;
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;
-    }
-    public String getAdminId() {
-        return adminId;
-    }
-    public void setAdminId(String adminId) {
-        this.adminId = adminId;
-    }
-    public String getEmail() {
-        return email;
-    }
-    public void setEmail(String email) {
-        this.email = email;
-    }
-    public String getFirstName() {
-        return firstName;
-    }
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-    public String getLastName() {
-        return lastName;
-    }
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-    public String getPassword() {
-        return password;
-    }
-    public void setPassword(String password) {
-        this.password = password;
-    }
-    @Override
+        }
+        public String getAdminId() {
+                return adminId;
+        }
+        public void setAdminId(String adminId) {
+                this.adminId = adminId;
+        }
+        public String getEmail() {
+                return email;
+        }
+        public void setEmail(String email) {
+                this.email = email;
+        }
+        public String getFirstName() {
+                return firstName;
+        }
+        public void setFirstName(String firstName) {
+                this.firstName = firstName;
+        }
+        public String getLastName() {
+                return lastName;
+        }
+        public void setLastName(String lastName) {
+                this.lastName = lastName;
+        }
+        public String getPassword() {
+                return password;
+        }
+        public void setPassword(String password) {
+                this.password = password;
+        }
+        @Override
         public String toString() {
                 return "Admin [adminId=" + adminId + ", email=" + email + ", firstName=" + firstName + ", lastName="
                                 + lastName + ", password=" + password + "]";
@@ -268,60 +262,54 @@ class Admin
 
 class BookingDetails
 {
-    private String bookingId;
-    private String userId;
-    private String serviceId;
-    private String status;
+        private String bookingId;
+        private String userId;
+        private String serviceId;
+        private String status;
 
-    public BookingDetails() {
-        super();
-    }
-    public BookingDetails(String bookingId, String userId, String serviceId, String status) {
-        super();
-        this.bookingId = bookingId;
-        this.userId = userId;
-        this.serviceId = serviceId;
-        this.status = status;
-    }
-    public String getBookingId() {
-        return bookingId;
-    }
-    public void setBookingId(String bookingId) {
-        this.bookingId = bookingId;
-    }
-    public String getUserId() {
-        return userId;
-    }
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-    public String getServiceId() {
-        return serviceId;
-    }
-    public void setServiceId(String serviceId) {
-        this.serviceId = serviceId;
-    }
-    public String getStatus() {
-        return status;
-    }
-    public void setStatus(String status) {
-        this.status = status;
-    }
-    @Override
+        public BookingDetails() {
+        }
+        public BookingDetails(String bookingId, String userId, String serviceId, String status) {
+                this.bookingId = bookingId;
+                this.userId = userId;
+                this.serviceId = serviceId;
+                this.status = status;
+        }
+        public String getBookingId() {
+                return bookingId;
+        }
+        public void setBookingId(String bookingId) {
+                this.bookingId = bookingId;
+        }
+        public String getUserId() {
+                return userId;
+        }
+        public void setUserId(String userId) {
+                this.userId = userId;
+        }
+        public String getServiceId() {
+                return serviceId;
+        }       
+        public void setServiceId(String serviceId) {
+                this.serviceId = serviceId;
+        }
+        public String getStatus() {
+                return status;
+        }
+        public void setStatus(String status) {
+                this.status = status;
+        }
+        @Override
         public String toString() {
                 return "BookingDetails [bookingId=" + bookingId + ", userId=" + userId + ", serviceId=" + serviceId + ", status=" + status + "]";
         }
 }
-
-
-public class Source
-{
-    public static void main(String args[]) 
-    {
-            Address address = new Address("Bangalore", "Karnataka", 123456, "India");
-            ServiceDetails serviceDetails = new ServiceDetails("SID1001", "BUS001", "10/01/2022", "15/01/2022", "Bangalore", "Delhi", "2500", "9", "70");
-            System.out.println(serviceDetails.toString());            
-            Customer customer = new Customer("1001", "admin@gmail.com", "Password", "Raj", "Kumar", "Bangalore", "Male", "1234567890", address, serviceDetails);
-            System.out.println(customer.toString());            
+public class Source {
+    public static void main(String[] args) {
+        Address address = new Address("Bangalore", "Karnataka", 123456, "India");
+                ServiceDetails serviceDetails = new ServiceDetails("SID1001", "BUS001", "10/01/2022", "15/01/2022", "Bangalore", "Delhi", "2500", "9", "70");
+                // System.out.println(serviceDetails.toString());            
+                Customer customer = new Customer("1001", "raju@gmail.com", "password@123", "Raj", "Kumar", "Bangalore", "Male", "1234567890", address, serviceDetails);
+                System.out.print(customer.toString());
     }
 }

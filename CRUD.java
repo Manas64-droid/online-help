@@ -1,16 +1,14 @@
-import java.util.*;
-
 interface AdminService 
 {
    void createAdmin(Admin admin);
    //void addAdmin(Admin admin);
    Admin updateAdmin(Admin admin);
-   Admin deleteAdmin(Admin admin);
+   void deleteAdmin(int admin);
    Admin searchAdmin(Admin admin);
    Admin[] getAdmin();
 }
 
-class AdminServiceImpl implements AdminService 
+class AdminServiceImpl implements AdminService
 {
    public static Admin adminArray[] = new Admin[5];
    static int count = 0;
@@ -27,7 +25,7 @@ class AdminServiceImpl implements AdminService
    {
       for(int i=0; i<adminArray.length; i++) 
       {
-         if(adminArray[i].getAdminId() == admin.getAdminId()) 
+         if(adminArray[i].getAdminId()== admin.getAdminId()) 
          {
             adminArray[i] = admin;
             return admin;
@@ -37,7 +35,7 @@ class AdminServiceImpl implements AdminService
    }
    
    //@Override
-   public Admin deleteAdmin(int adminId) 
+   public void deleteAdmin(int adminId) 
    {
       for(int i=0; i<adminArray.length; i++) 
       {
@@ -50,22 +48,24 @@ class AdminServiceImpl implements AdminService
    }
    
    //@Override
-   public Admin searchAdmin(int adminId)
+   public Admin searchAdmin(Admin adminName) throws NullPointerException
    {
-      for(int i=0; i<adminArray.length; i++)
+      int i;
+      for(i=0; i<adminArray.length; i++)
       {
-         if(adminArray[i].getAdminId() == adminId)
+         if(adminArray[i].getAdminId() == adminName.getAdminId())
          {
             return adminArray[i];
          }
       }
-   return adminArray;
+   return adminArray[i];
    }
    
    public Admin[] getAdmin() 
    {
       return adminArray;
-   }  
+   }
+
 }
 
 class Admin 
@@ -138,17 +138,40 @@ class Admin
    }
 }
 
-public class Source 
+public class CRUD
 {
    public static void main(String args[]) 
    {
       AdminService adminService = new AdminServiceImpl();
-      Admin raj = new Admin(1001, "raj@gmail.com", "Raj", "Kunar", "password4");
-      adminService.createAdmin(raj);
-      System.out.println(raj);
-                    
-      raj = new Admin(1001, "kumar@gmail.com", "Kumar", "Ashok", "password4");
-      adminService.updateAdmin(raj);
-      System.out.println(raj);
+      Admin rajan = new Admin(1004, "rajan@gmail.com", "Rajan", "Arun", "password4");
+      Admin rajan1 = new Admin(1002, "rajan@gmail.com", "Raja", "Arun", "password4");
+
+      //create
+      adminService.createAdmin(rajan); //essential to run 
+      adminService.createAdmin(rajan1); //essential to run 
+      
+      //Update
+      // rajan.setAdminId(2004); //essential to run 
+      System.out.println(rajan);
+
+
+      //Update1
+      // System.out.println(adminService.updateAdmin(rajan1)); //essential to run 
+
+      //Delete
+      // System.out.println(Arrays.toString(adminService.getAdmin()));
+      // adminService.deleteAdmin(rajan.getAdminId());               //essential to run 
+      // System.out.println();
+      // System.out.println(Arrays.toString(adminService.getAdmin()));
+
+      //Get
+      // System.out.println(Arrays.toString(adminService.getAdmin()));  //essential to run 
+      // System.out.println(rajan);
+      // System.out.println(rajan1);
+
+      //serch
+      // System.out.println(adminService.searchAdmin(rajan)); //essential to run 
+
+      // System.out.println(rajan+"\n"+rajan1);//for test before results // print both
    }
 }
